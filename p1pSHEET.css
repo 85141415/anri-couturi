@@ -1,0 +1,987 @@
+@font-face {
+    font-family: 'Futura Lt BT Fein';
+    src: url('/futura-font/futura\ light\ bt.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Futura Book font';
+    src: url('/futura-font/Futura\ Book\ font.ttf');
+}
+
+
+
+
+
+
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    color: transparent;
+    background-color: transparent;
+    position: fixed;
+    width: calc(100% - 40px);
+    z-index: 10;
+    top: -95px; /* Startposition außerhalb des sichtbaren Bereichs */
+    height: 55px;
+    fill: transparent;
+    transition: background-color 0.6s, color 0.6s, fill 0.6s, top 0.6s; /* Transition hinzufügen */
+}
+
+#header.scrolled {
+    background-color: transparent;
+    color: white;
+    top: 0; /* Endposition im sichtbaren Bereich */
+    transition: background-color 0.6s, color 0.6s, fill 0.6s, top 0.6s; /* Transition hinzufügen */
+    border-bottom: transparent;
+}
+
+#header.scrolled .logo {
+    transform: translate(-50%, 0px); /* Anpassung des Abstands bei Scroll */
+    transition: transform 0.6s; /* Transition für transform hinzufügen */
+}
+
+#header.scrolled .logo svg {
+    height: 50px; /* Neue Höhe bei Scroll */
+    width: 210px; /* Neue Breite bei Scroll */
+}
+
+#header.scrolled .logo-path {
+    transform: scale(1); /* Skalierung bei Scroll */
+    transition: transform 0.6s, fill 0.1s; /* Transition für transform und fill hinzufügen */
+}
+
+#header.scrolled-ws {
+    background-color: white;
+    color: black;
+    transition: background-color 0.6s, color 0.6s, fill 0.6s, top 0.6s, border-bottom 0.6s; /* Transition hinzufügen */
+    border-bottom: 1px solid #e1e1e1;
+}
+
+#header.scrolled-ws .logo-path {
+    fill: black;
+    transition: fill 0.6s;
+}
+
+
+.nav-header {
+    margin: 0px 12px;
+    padding-top: 1px;
+    padding-right: 5px;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    height: 20px;
+}
+
+/* Container for left and right nav groups */
+.nav-group {
+    display: flex;
+    align-items: center;
+}
+
+/* Nav link styles */
+.nav-left, .nav-right {
+    font-family: sans-serif;
+    font-size: 11px;
+    color: inherit;
+    border-color: inherit;
+    outline-style: none;
+    background-color: transparent;
+    margin-top: 11px;
+    margin-bottom: 10px;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-top: none;
+    border-bottom: none;
+    font-weight: 400;
+    text-decoration: none; /* Entfernt Unterstreichungen */
+    align-content: center;
+    outline-color: inherit;
+}
+
+.nav-left, .nav-right a {
+    line-height: 0;
+}
+
+/* Ändere hier auch die Hover-Stile */
+.nav-left:hover, .nav-right:hover {
+    border-color: transparent;
+    outline-style: solid;
+    outline-color: inherit;
+    outline-offset: 2px;
+    outline-width: 1px;
+    transition: 0.1s;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 182px); /* Verschiebt das Logo sowohl horizontal als auch vertikal */
+    transition: transform 0.6s, margin-top 0.6s; /* Transition für transform hinzufügen */
+    height: auto;
+    width: auto;
+}
+
+.logo svg {
+    display: block;
+    height: 200px; /* Höhe des SVG-Containers auf die ViewBox-Höhe einstellen */
+    width: 1000px; /* Breite des SVG-Containers auf die ViewBox-Breite einstellen */
+    transition: height 0.6s ease, width 0.6s ease; /* Übergang für die Größe */
+}
+
+.logo-path {
+    fill: white;
+    transform: scale(1); /* Standard-Skalierung */
+    transform-origin: center; /* Skalierung erfolgt vom Zentrum aus */
+    transition: transform 0.6s, fill 0.6s; /* Füge eine Transition hinzu */
+}
+
+
+.header-icons {
+    display: flex;
+    align-items: center; /* Zentriert die Icons vertikal */
+    justify-content: center; /* Zentriert die Icons horizontal */
+    margin: 0px 6px; /* Gleichmäßiger Abstand */
+}
+
+.header-icons a {
+    line-height: 0;
+    color: inherit;
+    fill: none;
+}
+
+.icon-header-menu {
+    margin-bottom: 1px;
+    fill: inherit;
+    height: 24px;
+    width: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+
+
+
+
+
+
+#banner-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Höhe auf die volle Ansichtshöhe setzen */
+    overflow: hidden; /* Verhindert, dass das Video über den Container hinausläuft */
+    background: #1b1b1b;
+    text-align: left;
+    color: white;
+}
+
+.responsive-banner, #promo-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Schneidet das Video zu und füllt den Container */
+    display: block;
+    z-index: 0;
+    transform: translateZ(0);
+    backface-visibility: hidden; 
+    border: none;
+    margin: 0;
+    padding: 0;
+    position: absolute; /* Absolute Positionierung, um den Container vollständig auszufüllen */
+    top: 0;
+    left: 0;
+}
+
+#promo-video::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: transparent;
+}
+
+.banner-link {
+    position: absolute;
+    top: -4vh;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    z-index: 1; }
+
+#header--responsive--banner {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-align: center;
+    color: white;
+    width: auto; /* Stellt sicher, dass der Header die volle Breite hat */
+    box-sizing: border-box;
+    font-size: 1.6vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 550;
+    margin-bottom: 1.25vh;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 0.9vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.centered {
+    position: absolute;
+    top: 215px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto; /* Passt die Breite an den Inhalt an */
+    height: auto; /* Passt die Höhe an den Inhalt an */
+    z-index: 10;
+}
+
+.ac--vid--text--new {
+    transform: scale(0.7); /* Skaliert das SVG auf 50% der Originalgröße */
+    transform-origin: center; /* Skalierung erfolgt vom Zentrum aus */
+    display: block; /* Stellt sicher, dass die Box sich anpasst */
+    backface-visibility: hidden;
+}
+
+.ac--vid--text--new--path {
+    fill: white;
+    transition: fill 0.6s ease; /* Transition für die Füllfarbe hinzufügen */
+}
+
+/* Bottom left text */
+#bottom-left {
+    width: auto;
+    padding: 15px;
+    position: absolute;
+    bottom: 0px;
+    left: 25px;
+    z-index: 2; /* Stellt sicher, dass der Text über dem Schatten liegt */
+}
+
+.__season--span-- {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    font-weight: 550;
+    margin: -10px 0px;
+    display: block;
+}
+
+.line-break--top_10px {
+    margin-bottom: 5px; /* Abstand unterhalb des Zeilenumbruchs */
+}
+
+.__col--span-- {
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    color: white;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    display: block;
+}
+
+.pause-button {
+    position: absolute;
+    bottom: 30px; /* Abstand vom unteren Rand */
+    right: 20px; /* Abstand vom rechten Rand */
+    background-color: transparent;
+    color: white; /* Textfarbe */
+    border: none; /* Kein Rahmen */
+    padding: 5px; /* Innenabstand */
+    cursor: pointer; /* Zeiger ändern */
+    font-size: 16px; /* Schriftgröße */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+#pause-icon, #play-icon {
+    width: 24px;
+    height: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.__shop-now--span-- {
+    width: auto;
+    position: relative;
+    display: inline-block;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    font-weight: 550;
+    color: white;
+    border: none;
+    border-bottom: 2px solid white;
+    background: transparent;
+    padding: 10px 20px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.2s ease-in-out;
+    z-index: 10;
+    margin: 0vw 0.75vw;
+}
+
+.__shop-now--span--::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    z-index: -1;
+    transition: top 0.2s ease-in-out;
+}
+
+.__shop-now--span--:hover::before {
+    top: 0;
+}
+
+.__shop-now--span--:hover {
+    color: rgb(0, 0, 0);
+    transition: color 0.2s ease-in-out;
+}
+
+#bottom-left--button-container {
+    position: absolute;
+    bottom: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*SECTIONS*/
+
+
+
+
+#white-section {
+    width: 100%;
+    height: 2.5vh; /* Höhe des sichtbaren Bereichs */
+    background-color: white; /* Hintergrundfarbe weiß */
+    z-index: 10;
+    align-content: center;
+}
+
+.white-section--3 {
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 140vh; /* Höhe des sichtbaren Bereichs */
+    background-color: #ffffff; /* Hintergrundfarbe weiß */
+    z-index: 10;
+}
+
+.header-first-ws {
+    margin-top: 8vh;
+    font-size: 28px;
+    font-family: 'Futura Lt BT Fein';
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-weight: 1000;
+}
+
+
+
+
+
+
+
+
+.white-section--2 {
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 120vh; /* Höhe des sichtbaren Bereichs */
+    background-color: #1b1b1b; /* Hintergrundfarbe weiß */
+    z-index: 10;
+}
+
+.header--second--white--section--2 {
+    margin-bottom: 5vh;
+    font-size: 22px;
+    font-family: 'Futura Lt BT Fein';
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: 1000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#banner--container--2 {
+    position: relative;
+    width: 80vw;
+    height: 100vh; /* Höhe auf die volle Ansichtshöhe setzen */
+    overflow: hidden; /* Verhindert, dass das Video über den Container hinausläuft */
+    background-color: transparent;
+    text-align: left;
+    color: white;
+    
+    
+    /* Positions all / VIDEO / centered */
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.responsive--banner--recenent--video2, #recent--news--video2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Schneidet das Video zu und füllt den Container */
+    display: block;
+    z-index: 0;
+    transform: translateZ(0);
+    backface-visibility: hidden; 
+    border: none;
+    margin: 0;
+    padding: 0;
+    position: absolute; /* Absolute Positionierung, um den Container vollständig auszufüllen */
+    top: 0;
+    left: 0;
+}
+
+
+
+
+
+
+
+
+#recent--video--center--container {
+    display: flex;
+    list-style: none;
+    position: absolute;
+    bottom: 3.5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+
+.recent--video--center--title {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 3vh;
+}
+
+
+
+.recent--video--center--text {
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: sans-serif;
+    position: relative; /* Stelle sicher, dass der Text positioniert ist */
+    z-index: 1; /* Stelle sicher, dass der Text einen niedrigeren z-index hat */
+}
+
+
+.recent--video--svg--title--centered {
+    position: absolute; /* Ändere zu 'absolute' */
+    top: -10vh; /* Positioniere das SVG oben im Container */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.6s, margin-top 0.6s;
+    height: auto;
+    width: auto;
+    z-index: 3; /* Erhöhe den z-index, damit das SVG über dem Text liegt */
+}
+
+
+.recent--video--svg--title--centered svg {
+    display: block;
+    height: 6.5vh; /* Höhe des SVG-Containers auf die ViewBox-Höhe einstellen */
+    width: auto; /* Breite des SVG-Containers auf die ViewBox-Breite einstellen */
+    transition: height 0.6s ease, width 0.6s ease; /* Übergang für die Größe */
+}
+
+.blur-background--recent--video {
+    position: relative;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Webkit-Präfix */
+    padding: 1vh 1vw; /* Padding für den Innenabstand */
+    border: 1px solid white; /* Rand für visuelle Abgrenzung */
+    border-radius: 2px;
+    display: inline-block;
+}
+
+
+
+.first-span {
+    font-size: 1.6vh;
+    margin-top: -0.5vh;
+    display: block; /* Macht das Span zu einem Blockelement */
+    padding-bottom: 1vh;
+}
+
+.second-span {
+    display: block; /* Macht das Span zu einem Blockelement */
+    font-size: 1.4vh;
+    margin-top: -0.5vh;
+    margin-bottom: -0.5vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Product IMG Section 1*/
+
+
+
+.product--1--section-aw {
+    align-content: center;
+    width: 100%;
+    height: 400vh; /* Höhe des sichtbaren Bereichs */
+    background-color: white; /* Hintergrundfarbe weiß */
+    z-index: 10;
+}
+
+.image-list-container {
+    display: flex;
+    justify-content: center; /* Zentriert die Liste horizontal */
+    margin-top: -2vh;
+}
+
+.image-list {
+    display: flex;
+    gap: 1vw; /* Abstand zwischen den Listenelementen */
+    padding: 0;
+    list-style: none; /* Entfernt die Standard-Aufzählungszeichen */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* IMAGE RELATED */
+
+
+.image-link {
+    display: inline-block; /* Macht den Link nur so breit wie das Bild */
+    position: relative;
+    overflow: hidden; /* Überschüssige Inhalte ausschneiden */
+    width: 100%; /* Breite des Containers */
+    height: 100%; /* Höhe des Containers */
+}
+
+.img-hover-zoom {
+    position: relative;
+    overflow: hidden; /* Stellt sicher, dass das Bild im Container bleibt */
+    width: auto;
+    height: 73vh;
+}
+
+.image {
+    width: 26vw; /* Passt sich der Breite des Containers an */
+    height: 73vh; /* Passt sich der Höhe des Containers an */
+    object-fit: cover; /* Bild bleibt innerhalb des Containers */
+    transition: transform 1s ease;
+    transform-origin: center;
+}
+
+.image-link:hover .bottom-right--product-images {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 0.45s;
+}
+
+.bottom-right--product-images {
+    position: absolute;
+    bottom: calc(0.7vw + 2px);
+    right: 2vw;
+    transform: translateX(10vw);
+    opacity: 0;
+    transition: transform 1s, opacity 0.8s; /* Übergangseffekte hinzufügen */
+    z-index: 2; /* Stellt sicher, dass der Text über dem Schatten liegt */
+}
+
+.image-shadow {
+    position: relative;
+    overflow: hidden; /* Stellt sicher, dass der Schatten nur innerhalb der Grenzen des Bildes bleibt */
+}
+
+.shadow-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.8s;
+}
+
+.image-link:hover .shadow-overlay {
+    opacity: 0.6;
+}
+
+.product--image--description {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 550;
+    color: white;
+    letter-spacing: 0.01vw;
+}
+
+.product--image--description--br-- {
+    margin-bottom: 1.2vh;
+}
+
+.product--image--description--2nd-- {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    color: white;
+    border-left: 1px solid white;
+    padding: 0.2vh 0.5vw;
+}
+
+.product--image--description--3rd-- {
+    font-family: sans-serif;
+    font-size: 12px;
+    color: white;
+}
+
+#centered {
+    position: absolute;
+    bottom: 3.5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 1.5s ease;
+}
+
+.blur-background {
+    position: relative;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Webkit-Präfix */
+    padding: 7px; /* Padding für den Innenabstand */
+    border: 1px solid white; /* Rand für visuelle Abgrenzung */
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.product--image--description--middle-- {
+    position: relative; /* Stellt sicher, dass der Text relativ positioniert ist */
+    z-index: 2; /* Text bleibt über dem Blur */
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    font-weight: 550;
+    padding: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05vw;
+}
+
+
+
+
+
+#bottom-left--products {
+    display: flex;
+    list-style: none;
+    height: auto;
+    width: auto;
+    position: absolute;
+    bottom: 8vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; /* Stellt sicher, dass der Text über dem Schatten liegt */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Webkit-Präfix */
+    border: 1px solid white;
+    align-items: center;
+    justify-content: flex-start; /* Ändere dies zu flex-start */
+    padding: 0.8vh;
+    margin: 0; /* Entfernt den Margin des UL */
+    text-align: left; /* Stellt sicher, dass der Text linksbündig ist */
+    border-radius: 2px;
+}
+
+#bottom-left--products li {
+    display: flex; /* Ermöglicht das Anordnen von Kinderelementen nebeneinander */
+    align-items: center; /* Zentriert die Inhalte vertikal (falls nötig) */
+}
+
+#bottom-left--products li:not(:last-child) {
+    margin-right: 0.5vw; /* Fügt Abstand zwischen den <li>-Elementen hinzu */
+    margin-left: 0.5vw; /* Fügt Abstand zwischen den <li>-Elementen hinzu */
+}
+
+#bottom-left--products span {
+    white-space: nowrap; /* Verhindert Zeilenumbrüche im Text */
+}
+
+
+#bottom-left--products--2 {
+    display: flex;
+    list-style: none;
+    height: auto;
+    width: calc(100% - 1.3vw);
+    position: absolute;
+    bottom: 0.6vw;
+    left: 0.6vw;
+    z-index: 2; /* Stellt sicher, dass der Text über dem Schatten liegt */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Webkit-Präfix */
+    border: 1px solid white;
+    align-items: center;
+    justify-content: flex-start; /* Ändere dies zu flex-start */
+    padding: 0;
+    margin: 0; /* Entfernt den Margin des UL */
+    text-align: left; /* Stellt sicher, dass der Text linksbündig ist */
+    border-radius: 2px;
+}
+
+#bottom-left--products--2 {
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.3vw;
+    bottom: 1.2vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.img-hover-zoom--wide-- {
+    position: relative;
+    overflow: hidden; /* Stellt sicher, dass das Bild im Container bleibt */
+    width: 39.5vw;
+    height: 80vh;
+}
+
+.image--wide-- {
+    width: 39.5vw; /* Passt sich der Breite des Containers an */
+    height: 80vh; /* Passt sich der Höhe des Containers an */
+    object-fit: cover; /* Bild bleibt innerhalb des Containers */
+    transition: transform 1s ease;
+    transform-origin: center;
+}
+
+
+
+
+.img-hover-zoom--extra--wide-- {
+    position: relative;
+    overflow: hidden; /* Stellt sicher, dass das Bild im Container bleibt */
+    width: 80vw;
+    height: 80vh;
+}
+
+.image--extra--wide-- {
+    width: 80vw; /* Passt sich der Breite des Containers an */
+    height: 80vh; /* Passt sich der Höhe des Containers an */
+    object-fit: cover; /* Bild bleibt innerhalb des Containers */
+    transition: transform 1s ease;
+    transform-origin: center;
+}
