@@ -8,6 +8,39 @@
     src: url('/futura-font/Futura\ Book\ font.ttf');
 }
 
+@font-face {
+    font-family: 'Poppins Light';
+    src: url('/Poppins-Font/Poppins-Light.ttf')
+}
+
+@font-face {
+    font-family: 'Poppins Bold';
+    src: url('/Poppins-Font/Poppins-Bold.ttf')
+}
+
+@font-face {
+    font-family: 'Poppins Regular';
+    src: url('Poppins-Font/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins Semi Bold';
+    src: url('Poppins-Font/Poppins-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins Medium';
+    src: url('Poppins-Font/Poppins-Medium.ttf');
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -24,18 +57,20 @@
     position: fixed;
     width: calc(100% - 40px);
     z-index: 10;
-    top: -95px; /* Startposition außerhalb des sichtbaren Bereichs */
-    height: 55px;
+    top: 44px; /* Startposition außerhalb des sichtbaren Bereichs */
+    height: 230px;
     fill: transparent;
-    transition: background-color 0.6s, color 0.6s, fill 0.6s, top 0.6s; /* Transition hinzufügen */
+    transition: background-color 0.6s, color 0.2s, fill 0.6s, top 0.6s, height 0.6s ease; /* Transition hinzufügen */
 }
 
 #header.scrolled {
-    background-color: transparent;
-    color: white;
+    background-color: white;
+    color: black;
     top: 0; /* Endposition im sichtbaren Bereich */
-    transition: background-color 0.6s, color 0.6s, fill 0.6s, top 0.6s; /* Transition hinzufügen */
+    transition: background-color 0.6s, color 0.2s, fill 0.6s, top 0.6s height 0.6s ease; /* Transition hinzufügen */
     border-bottom: transparent;
+    border-bottom: 1px solid #e1e1e1;
+    height: 55px;
 }
 
 #header.scrolled .logo {
@@ -50,28 +85,17 @@
 
 #header.scrolled .logo-path {
     transform: scale(1); /* Skalierung bei Scroll */
-    transition: transform 0.6s, fill 0.1s; /* Transition für transform und fill hinzufügen */
-}
-
-#header.scrolled-ws {
-    background-color: white;
-    color: black;
-    transition: background-color 0.6s, color 0.6s, fill 0.6s, top 0.6s, border-bottom 0.6s; /* Transition hinzufügen */
-    border-bottom: 1px solid #e1e1e1;
-}
-
-#header.scrolled-ws .logo-path {
+    transition: transform 0.6s, fill 0.1s ease; /* Transition für transform und fill hinzufügen */
     fill: black;
     transition: fill 0.6s;
 }
 
-
 .nav-header {
     margin: 0px 12px;
     padding-top: 1px;
-    padding-right: 5px;
+    padding-right: 10px;
     padding-bottom: 1px;
-    padding-left: 5px;
+    padding-left: 10px;
     height: 20px;
 }
 
@@ -79,23 +103,23 @@
 .nav-group {
     display: flex;
     align-items: center;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
 }
 
 /* Nav link styles */
 .nav-left, .nav-right {
-    font-family: sans-serif;
-    font-size: 11px;
+    font-family: 'Poppins Semi Bold';
+    font-size: 12.5px;
     color: inherit;
     border-color: inherit;
     outline-style: none;
     background-color: transparent;
     margin-top: 11px;
     margin-bottom: 10px;
-    border-left: 1px solid;
-    border-right: 1px solid;
     border-top: none;
     border-bottom: none;
-    font-weight: 400;
+    font-weight: bold;
     text-decoration: none; /* Entfernt Unterstreichungen */
     align-content: center;
     outline-color: inherit;
@@ -105,21 +129,11 @@
     line-height: 0;
 }
 
-/* Ändere hier auch die Hover-Stile */
-.nav-left:hover, .nav-right:hover {
-    border-color: transparent;
-    outline-style: solid;
-    outline-color: inherit;
-    outline-offset: 2px;
-    outline-width: 1px;
-    transition: 0.1s;
-}
-
 .logo {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, 182px); /* Verschiebt das Logo sowohl horizontal als auch vertikal */
-    transition: transform 0.6s, margin-top 0.6s; /* Transition für transform hinzufügen */
+    transform: translate(-50%, 0px); /* Verschiebt das Logo sowohl horizontal als auch vertikal */
+    transition: transform 0.6s, margin-top 0.6s ease; /* Transition für transform hinzufügen */
     height: auto;
     width: auto;
 }
@@ -135,15 +149,30 @@
     fill: white;
     transform: scale(1); /* Standard-Skalierung */
     transform-origin: center; /* Skalierung erfolgt vom Zentrum aus */
-    transition: transform 0.6s, fill 0.6s; /* Füge eine Transition hinzu */
+    transition: transform 0.6s, fill 0.6s ease; /* Füge eine Transition hinzu */
 }
 
 
 .header-icons {
     display: flex;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
     align-items: center; /* Zentriert die Icons vertikal */
     justify-content: center; /* Zentriert die Icons horizontal */
     margin: 0px 6px; /* Gleichmäßiger Abstand */
+    visibility: visible;
+}
+
+.menu-link {
+    font-family: 'Poppins Semi Bold';
+    font-size: 12.5px;
+    display: flex; /* Flexbox innerhalb des Links */
+    align-items: center; /* Vertikale Ausrichtung von Icon und Text */
+    gap: 8px; /* Abstand zwischen SVG und Text */
+    text-decoration: none; /* Entfernt den Unterstrich */
+    color: inherit; /* Übernimmt die Textfarbe der Umgebung */
+    line-height: 0;
 }
 
 .header-icons a {
@@ -155,9 +184,282 @@
 .icon-header-menu {
     margin-bottom: 1px;
     fill: inherit;
-    height: 24px;
-    width: 15px;
+    height: 25px;
+    width: 18px;
+    display: inline-block;
+    vertical-align: middle; /* Sicherstellen, dass das Icon richtig ausgerichtet ist */
 }
+
+/* Standardmäßig Links unsichtbar machen */
+.nav-right.nav-header, .nav-left.nav-header {
+    visibility: hidden; /* Links bleiben im Layout, aber sind unsichtbar */
+    pointer-events: none; /* Sicherstellen, dass sie nicht anklickbar sind */
+    transition: visibility 0.2s ease;
+}
+
+/* Links sichtbar machen, wenn der Header die Klasse "scrolled" hat */
+.nav-right.nav-header.scrolled, .nav-left.nav-header.scrolled {
+    visibility: visible; /* Links werden sichtbar */
+    pointer-events: auto; /* Sicherstellen, dass sie anklickbar sind */
+    transition: visibility 0.2s ease;
+}
+
+/* Standardmäßig Icons unsichtbar machen */
+.header-icons {
+    visibility: hidden; /* Icons sind unsichtbar */
+    pointer-events: none; /* Sicherstellen, dass sie nicht anklickbar sind */
+    transition: visibility 0.2s ease;
+}
+
+/* Icons sichtbar machen, wenn der Header die Klasse "scrolled" hat */
+#header.scrolled .header-icons {
+    visibility: visible; /* Icons wieder sichtbar machen */
+    pointer-events: auto; /* Sicherstellen, dass sie anklickbar sind */
+    transition: visibility 0.2s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Side Menu Styling */
+.side-menu {
+    height: 100%;
+    width: 22vw; /* Feste Breite des Menüs */
+    min-width: 400px; /* Mindestbreite des Menüs */
+    max-width: 400px; /* Optional: Maximale Breite für sehr große Bildschirme */
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    left: -25vw; /* Initiale Position außerhalb des sichtbaren Bereichs */
+    background-color: #ffffff;
+    overflow-y: auto; /* Scrollbar bei zu viel Inhalt */
+    overflow-x: hidden;
+    transition: left 0.5s, visibility 0.6s ease; /* Nur left animieren */
+    padding-top: 8vh;
+    box-sizing: border-box; /* Box Model anpassen, damit Padding die Breite nicht beeinflusst */
+    border-right: 2px solid #e1e1e1;
+    visibility: hidden;
+}
+
+.side-menu.open {
+    left: 0; /* Position des geöffneten Menüs */
+    visibility: visible;
+}
+
+.side-menu .menu-item {
+    font-family: 'Poppins Semi Bold';
+    padding: 0.05vh 0.2vw;
+    margin-bottom: 3.2vh;
+    margin-left: 2vw; /* Abstand vom linken Rand des Menüs */
+    text-decoration: none;
+    font-size: 16px;
+    color: #000000;
+    display: block; /* Jeder Link wird untereinander angezeigt */
+    text-align: left; /* Text bleibt linksbündig */
+    white-space: nowrap; /* Verhindert Zeilenumbrüche */
+    transition: color 0.3s ease; /* Farbänderung animieren */
+    cursor: pointer;
+    width: max-content; /* Klickfläche passt sich der Breite des Textes an */
+    position: relative;
+}
+
+.side-menu .closebtn {
+    position: absolute;
+    top: 15px;
+    right: 2.5vw;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.6s ease-in-out; /* Smooth Transition */
+    transform-origin: center; /* Skalierung aus der Mitte */
+    will-change: transform; /* Optimiert die Skalierungs-Performance */
+}
+
+.side-menu .closebtn:hover {
+    transform: scale(1.1); /* Vergrößerung */
+}
+
+/* Submenu Styling */
+.submenu {
+    height: 100%;
+    width: 22vw; /* Feste Breite des Submenus, gleiche Breite wie das Hauptmenü */
+    min-width: 400px; /* Mindestbreite des Submenus */
+    max-width: 400px; /* Optional: Maximale Breite für sehr große Bildschirme */
+    position: fixed;
+    z-index: 25;
+    top: 0;
+    left: 22vw; /* Submenu direkt neben dem Hauptmenü */
+    background-color: #ffffff;
+    overflow-y: auto; /* Scrollbar bei zu viel Inhalt */
+    overflow-x: hidden;
+    transition: left 0.5s; /* Nur left animieren */
+    padding-top: 8vh;
+    box-sizing: border-box; /* Box Model anpassen, damit Padding die Breite nicht beeinflusst */
+    display: none; /* Standardmäßig nicht angezeigt */
+    text-align: left; /* Text bleibt linksbündig */
+    white-space: nowrap; /* Verhindert Zeilenumbrüche */
+}
+
+.submenu.open {
+    display: block; /* Anzeige bei geöffnetem Zustand */
+}
+
+.submenu .submenu-item {
+    font-family: 'Poppins Semi Bold';
+    padding: 0.05vh 0.2vw;
+    margin-bottom: 3.2vh;
+    margin-left: 2vw; /* Abstand vom linken Rand des Submenus */
+    text-decoration: none;
+    font-size: 14px;
+    color: #000000;
+    display: block; /* Jeder Link wird untereinander angezeigt */
+    text-align: left; /* Text bleibt linksbündig */
+    white-space: nowrap; /* Verhindert Zeilenumbrüche */
+    transition: color 0.3s ease; /* Farbänderung animieren */
+    cursor: pointer;
+    width: max-content; /* Klickfläche passt sich der Breite des Textes an */
+    position: relative;
+}
+
+/* Grundlegendes Overlay Styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0); /* Anfangs keine Verdunklung */
+    opacity: 0; /* Anfangs nicht sichtbar */
+    pointer-events: none;
+    transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), background-color 0.8s cubic-bezier(0.5, 0, 0, 1); /* Smooth Übergang */
+    z-index: 20;
+}
+
+.overlay.active {
+    opacity: 1; /* Voll sichtbar */
+    pointer-events: all;
+    background-color: rgba(0, 0, 0, 0.5); /* Leichter Verdunklungseffekt */
+}
+
+/* Media Queries für kleinere Fenster */
+@media (max-width: 800px) {
+    .side-menu, .submenu {
+        width: 100%; /* Menü nimmt gesamten Platz ein */
+        left: -100%; /* Initial außerhalb des sichtbaren Bereichs */
+    }
+
+    .side-menu.open, .submenu.open {
+        left: 0; /* Öffnen nimmt ganzen Platz ein */
+    }
+
+    .submenu {
+        left: 100%; /* Submenu direkt nach dem Hauptmenü */
+    }
+}
+
+
+/* Body fixieren, wenn das Side Menu geöffnet ist */
+body.no-scroll {
+    overflow: hidden; /* Verhindert das Scrollen */
+    /* Verhindert das Verschieben */
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container für den Banner mit Schneeflocken */
+.top-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 0 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.6s ease;
+    overflow: hidden; /* Verhindert, dass die Schneeflocken außerhalb des Containers sichtbar sind */
+}
+
+.top-banner a {
+    text-decoration: none;
+    font-family: 'Poppins Regular';
+    font-size: 13px;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -187,14 +489,53 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #banner-container {
     position: relative;
     width: 100%;
     height: 100vh; /* Höhe auf die volle Ansichtshöhe setzen */
     overflow: hidden; /* Verhindert, dass das Video über den Container hinausläuft */
-    background: #1b1b1b;
+    background: white;
     text-align: left;
     color: white;
+    border-bottom: 4px solid #e1e1e1;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .responsive-banner, #promo-video {
@@ -222,7 +563,7 @@ body {
 
 .banner-link {
     position: absolute;
-    top: -4vh;
+    top: 0vh;
     left: 0; 
     width: 100%;
     height: 100%;
@@ -240,7 +581,7 @@ body {
     box-sizing: border-box;
     font-size: 1.6vh;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 550;
+    font-weight: 650;
     margin-bottom: 1.25vh;
     text-transform: uppercase;
     margin: 0;
@@ -289,17 +630,21 @@ body {
 
 /* Bottom left text */
 #bottom-left {
+    text-align: center;
     width: auto;
     padding: 15px;
     position: absolute;
-    bottom: 0px;
-    left: 25px;
+    bottom: 4vh;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 2; /* Stellt sicher, dass der Text über dem Schatten liegt */
 }
 
 .__season--span-- {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 15px;
+    text-align: center;
+    font-family: 'Poppins Regular';
+    font-weight: bold;
+    font-size: 20px;
     font-weight: 550;
     margin: -10px 0px;
     display: block;
@@ -311,10 +656,9 @@ body {
 
 .__col--span-- {
     text-align: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
+    font-family: 'Poppins Regular';
+    font-weight: bold;
+    font-size: 30px;
     color: white;
     padding-top: 1px;
     padding-bottom: 3px;
@@ -367,19 +711,22 @@ body {
     width: auto;
     position: relative;
     display: inline-block;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 16px;
-    font-weight: 550;
+    font-family: 'Poppins Semi Bold';
+    font-size: 14px;
+    text-transform: uppercase;
     color: white;
     border: none;
-    border-bottom: 2px solid white;
     background: transparent;
     padding: 10px 20px;
     cursor: pointer;
     overflow: hidden;
     transition: color 0.2s ease-in-out;
     z-index: 10;
-    margin: 0vw 0.75vw;
+    margin: 0vh 0.75vw;
+
+    background-color: hsla(0, 0%, 0%, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Webkit-Präfix */
 }
 
 .__shop-now--span--::before {
@@ -405,7 +752,7 @@ body {
 
 #bottom-left--button-container {
     position: absolute;
-    bottom: 2vh;
+    bottom: 2.5vh;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
@@ -472,7 +819,7 @@ body {
 }
 
 .header-first-ws {
-    margin-top: 8vh;
+    margin-top: 6vh;
     font-size: 28px;
     font-family: 'Futura Lt BT Fein';
     text-align: center;
@@ -491,18 +838,18 @@ body {
     align-content: center;
     justify-content: center;
     width: 100%;
-    height: 120vh; /* Höhe des sichtbaren Bereichs */
-    background-color: #1b1b1b; /* Hintergrundfarbe weiß */
+    height: 105vh; /* Höhe des sichtbaren Bereichs */
+    background-color: black; /* Hintergrundfarbe weiß */
     z-index: 10;
 }
 
 .header--second--white--section--2 {
     margin-bottom: 5vh;
     font-size: 22px;
-    font-family: 'Futura Lt BT Fein';
+    font-family: 'Poppins Medium';
     text-align: center;
-    color: rgb(255, 255, 255);
-    font-weight: 1000;
+    color: rgb(0, 0, 0);
+    font-weight: 550;
 }
 
 
@@ -523,8 +870,8 @@ body {
 
 #banner--container--2 {
     position: relative;
-    width: 80vw;
-    height: 100vh; /* Höhe auf die volle Ansichtshöhe setzen */
+    width: 36vw;
+    height: 95vh; /* Höhe auf die volle Ansichtshöhe setzen */
     overflow: hidden; /* Verhindert, dass das Video über den Container hinausläuft */
     background-color: transparent;
     text-align: left;
@@ -537,9 +884,9 @@ body {
 
 }
 
-.responsive--banner--recenent--video2, #recent--news--video2 {
-    width: 100%;
-    height: 100%;
+#recent--news--video2 {
+    width: 36vw;
+    height: 95vh;
     object-fit: cover; /* Schneidet das Video zu und füllt den Container */
     display: block;
     z-index: 0;
@@ -552,7 +899,6 @@ body {
     top: 0;
     left: 0;
 }
-
 
 
 
@@ -576,7 +922,7 @@ body {
 
 .recent--video--center--title {
     text-align: center;
-    font-family: sans-serif;
+    font-family: 'Poppins Light';
     font-size: 3vh;
 }
 
@@ -586,7 +932,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    font-family: sans-serif;
+    font-family: 'Poppins Light';
     position: relative; /* Stelle sicher, dass der Text positioniert ist */
     z-index: 1; /* Stelle sicher, dass der Text einen niedrigeren z-index hat */
 }
@@ -665,6 +1011,140 @@ body {
 
 
 
+/* Product IMG Section 1 */
+.product--2--section-aw {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 110vh;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+}
+
+.p2--image-list-container {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.mySlides {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 95vh;
+    opacity: 0.8;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.mySlides.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.p2--img-hover-zoom {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.p2--image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shadow-overlay--2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transition: opacity 0.7s;
+}
+
+#bottom-centered--products {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product--image--description {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.w3-button {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Webkit-Präfix */
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+    user-select: none;
+    border-radius: 20px;
+    align-content: center;
+    text-align: center;
+}
+
+.w3-b-d--svg {
+    width: 10px;
+    height: 10px;
+}
+
+.w3-display-left {
+    left: 10px;
+}
+
+.w3-display-right {
+    right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -700,6 +1180,7 @@ body {
 
 .product--1--section-aw {
     align-content: center;
+    justify-content: center;
     width: 100%;
     height: 400vh; /* Höhe des sichtbaren Bereichs */
     background-color: white; /* Hintergrundfarbe weiß */
@@ -709,13 +1190,16 @@ body {
 .image-list-container {
     display: flex;
     justify-content: center; /* Zentriert die Liste horizontal */
-    margin-top: -2vh;
+    margin-top: 19.2px;
+    top: 0;
+    bottom: 0;
 }
 
 .image-list {
     display: flex;
-    gap: 1vw; /* Abstand zwischen den Listenelementen */
+    gap: 19.2px; /* Abstand zwischen den Listenelementen */
     padding: 0;
+    margin: 0;
     list-style: none; /* Entfernt die Standard-Aufzählungszeichen */
 }
 
@@ -757,12 +1241,12 @@ body {
     position: relative;
     overflow: hidden; /* Stellt sicher, dass das Bild im Container bleibt */
     width: auto;
-    height: 73vh;
+    height: 80vh;
 }
 
 .image {
-    width: 26vw; /* Passt sich der Breite des Containers an */
-    height: 73vh; /* Passt sich der Höhe des Containers an */
+    width: 29vw; /* Passt sich der Breite des Containers an */
+    height: 80vh; /* Passt sich der Höhe des Containers an */
     object-fit: cover; /* Bild bleibt innerhalb des Containers */
     transition: transform 1s ease;
     transform-origin: center;
@@ -806,10 +1290,9 @@ body {
 }
 
 .product--image--description {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 550;
+    font-family: 'Poppins Regular';
+    font-weight: bold;
+    font-size: 30px;
     color: white;
     letter-spacing: 0.01vw;
 }
@@ -870,7 +1353,7 @@ body {
 
 
 
-#bottom-left--products {
+#bottom-centered--products {
     display: flex;
     list-style: none;
     height: auto;
@@ -880,15 +1363,11 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 2; /* Stellt sicher, dass der Text über dem Schatten liegt */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* Webkit-Präfix */
-    border: 1px solid white;
     align-items: center;
     justify-content: flex-start; /* Ändere dies zu flex-start */
     padding: 0.8vh;
     margin: 0; /* Entfernt den Margin des UL */
     text-align: left; /* Stellt sicher, dass der Text linksbündig ist */
-    border-radius: 2px;
 }
 
 #bottom-left--products li {
@@ -956,13 +1435,13 @@ body {
 .img-hover-zoom--wide-- {
     position: relative;
     overflow: hidden; /* Stellt sicher, dass das Bild im Container bleibt */
-    width: 39.5vw;
-    height: 80vh;
+    width: auto;
+    height: 95vh;
 }
 
 .image--wide-- {
-    width: 39.5vw; /* Passt sich der Breite des Containers an */
-    height: 80vh; /* Passt sich der Höhe des Containers an */
+    width: 44vw; /* Passt sich der Breite des Containers an */
+    height: 95vh; /* Passt sich der Höhe des Containers an */
     object-fit: cover; /* Bild bleibt innerhalb des Containers */
     transition: transform 1s ease;
     transform-origin: center;
@@ -974,14 +1453,200 @@ body {
 .img-hover-zoom--extra--wide-- {
     position: relative;
     overflow: hidden; /* Stellt sicher, dass das Bild im Container bleibt */
-    width: 80vw;
-    height: 80vh;
+    width: auto;
+    height: 95vh;
 }
 
 .image--extra--wide-- {
-    width: 80vw; /* Passt sich der Breite des Containers an */
-    height: 80vh; /* Passt sich der Höhe des Containers an */
+    width: 89vw; /* Passt sich der Breite des Containers an */
+    height: 95vh; /* Passt sich der Höhe des Containers an */
     object-fit: cover; /* Bild bleibt innerhalb des Containers */
     transition: transform 1s ease;
     transform-origin: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FOOTER */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+    font-family: 'Poppins Medium';
+    background-color: black;
+    color: rgb(255, 255, 255);
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    flex: 1 1 200px; /* Makes the sections flexible */
+    margin: 10px;
+    padding: 0 20px;
+}
+
+.footer-title {
+    font-family: 'Poppins Medium';
+    color: rgb(145, 145, 145);
+    font-size: 11px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.01vw;
+}
+
+.footer-section p, .footer-section ul, .footer-section li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-section ul {
+    padding-top: 2.5vh;
+}
+
+.footer-section ul li {
+    margin-bottom: 2.5vh;
+}
+
+.footer-section ul li a {
+    font-family: 'Poppins Medium';
+    color: inherit;
+    text-decoration: none;
+    font-size: 12px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transition: color 0.2s ease-in-out;
+    z-index: 0; /* Sicherstellen, dass der Text über dem Hintergrund bleibt */
+    padding: 0.25vh 0.2vw;
+    font-weight: 500;
+    letter-spacing: 0.01vw;
+}
+
+.footer-section ul li a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: -1;
+    transition: top 0.2s ease-in-out;
+}
+
+.footer-section ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: white;
+    z-index: 1; /* Sicherstellen, dass die untere Linie über dem Hintergrund bleibt */
+}
+
+.footer-section ul li a:hover::before {
+    top: 0;
+}
+
+.footer-section ul li a:hover {
+    color: rgb(0, 0, 0);
+}
+
+.footer-section input[type="email"], .footer-section select {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    border: none;
+    background-color: #ffffff;
+    color: #ffffff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 8vh;
+    width: 100%;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-paragraph {
+    font-family: 'Poppins Regular';
+    color: inherit;
+    text-decoration: none;
+    font-size: 12px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transition: color 0.2s ease-in-out;
+    z-index: 0; /* Sicherstellen, dass der Text über dem Hintergrund bleibt */
+    padding: 0.25vh 0.2vw;
+    font-weight: 500;
+    letter-spacing: 0.01vw;
 }
