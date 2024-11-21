@@ -8,6 +8,8 @@
     <title>Anri Couturi Official Online Store | ANRI COUTURI</title>
     <link rel="icon" href="/AC/ac-new-white-5.png" type="image/x-icon">
     <link rel="stylesheet" href="p1pSHEET.css">
+    <link rel="stylesheet" href="snowflakes.css">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,54 +18,155 @@
 
 <body>
 
+
+
+
+    <div class="top-banner" id="topBanner">
+        <div class="snowfall"></div> <!-- Schneeflocken-Container -->
+        <p style="margin: 12px;"><a href="#">Free returns until 31/1</a></p>
+    </div>
+
+
+
+
+
+
+
     <header id="header">
         <!-- Linke Nav-Gruppe -->
         <nav class="nav-group">
             <div class="header-icons">
-                <a href="#menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" class="icon-header-menu">
-                        <path fill="currentColor" d="M24 18v1h-24v-1h24zm0-6v1h-24v-1h24zm0-6v1h-24v-1h24z"/>
+                <a href="#menu" class="menu-link" onclick="openMenu()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon-header-menu">
+                        <g>
+                            <path fill="none" d="M0 0h24v24H0z" fill="currentColor"/>
+                            <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="currentColor"/>
+                        </g>
                     </svg>
+                    <span>MENU</span>
                 </a>
-            </div>
-            <a href="collections.html" class="nav-left nav-header">COLLECTIONS</a>
-            <a href="new.html" class="nav-left nav-header">NEW [<span id="year"></span>]</a>
+            </div>            
+            <a href="new.html" class="nav-left nav-header">NEW <span id="year"></span></a>
         </nav>
     
+
+
+
+
+
+           <!-- Side Menu -->
+                <div id="sideMenu" class="side-menu">
+                    <a class="closebtn" onclick="closeMenu()">
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#000000" d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512 195.2 285.696a64 64 0 0 1 0-90.496z"/>
+                        </svg>
+                    </a>
+                    <div class="menu-item" onclick="toggleSubmenu('submenu1')">Geschenke</div>
+                    <div class="menu-item">Neuheiten</div>
+                    <div class="menu-item">Taschen</div>
+                    <div class="menu-item">Reisen</div>
+                    <div class="menu-item">Damen</div>
+                    <div class="menu-item">Herren</div>
+                    <div class="menu-item">Kinder</div>
+                    <div class="menu-item">Schmuck & Uhren</div>
+                    <div class="menu-item">Düfte und Make-up</div>
+                    <div class="menu-item">Décor & Lifestyle</div>
+                    <div class="menu-item">Anmelden</div>
+                    <div class="menu-item">Meine Bestellungen</div>
+                    <div class="menu-item">Kontakt</div>
+                </div>
+
+                <!-- Submenu -->
+                <div id="submenu1" class="submenu">
+                    <div class="submenu-item">Submenu Item 1</div>
+                    <div class="submenu-item">Submenu Item 2</div>
+                    <div class="submenu-item">Submenu Item 3</div>
+                    <div class="submenu-item">Submenu Item 4</div>
+                </div>
+
+                <!-- Overlay -->
+                <div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- Logo in der Mitte -->
             <div class="logo">
                 <svg width="883" height="210" viewBox="0 0 883 210" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M31.08 106.84V111H0.68V106.84L9.32 105.88C10.4933 105.773 11.3467 105.613 11.88 105.4C12.4133 105.08 12.8933 104.44 13.32 103.48C13.8533 102.413 14.4933 100.6 15.24 98.04L46.12 2.2H56.2L87.4 98.04C88.1467 100.6 88.7333 102.413 89.16 103.48C89.6933 104.44 90.2267 105.08 90.76 105.4C91.2933 105.613 92.0933 105.773 93.16 105.88L101.96 106.84V111H63.08V106.84L71.88 105.88C73.5867 105.667 74.4933 105.24 74.6 104.6C74.8133 103.853 74.3333 101.667 73.16 98.04L66.6 77.56H27.56L21 98.04C19.8267 101.667 19.2933 103.853 19.4 104.6C19.6133 105.24 20.5733 105.667 22.28 105.88L31.08 106.84ZM29.16 72.44H65L47.08 16.76L29.16 72.44ZM156.029 6.51999V2.2H186.589V6.51999L177.789 7.32C176.082 7.53333 175.069 8.01333 174.749 8.75999C174.429 9.4 174.269 11.5333 174.269 15.16V111H166.429L108.189 12.76V98.04C108.189 101.667 108.349 103.853 108.669 104.6C108.989 105.24 110.002 105.667 111.709 105.88L120.509 106.84V111H89.9488V106.84L98.7488 105.88C100.455 105.667 101.469 105.24 101.789 104.6C102.109 103.853 102.269 101.667 102.269 98.04V15.16C102.269 11.5333 102.109 9.4 101.789 8.75999C101.469 8.01333 100.455 7.53333 98.7488 7.32L89.9488 6.51999V2.2H117.629L168.349 87.96V15.16C168.349 11.5333 168.189 9.4 167.869 8.75999C167.549 8.01333 166.535 7.53333 164.829 7.32L156.029 6.51999ZM158.974 6.51999V2.2H203.454C213.907 2.2 221.907 4.70667 227.454 9.72C233.107 14.6267 235.934 21.1867 235.934 29.4V34.36C235.934 40.8667 234.12 46.4133 230.494 51C226.974 55.48 221.907 58.5733 215.294 60.28L235.774 98.04C237.16 100.6 238.174 102.413 238.814 103.48C239.454 104.44 240.04 105.08 240.574 105.4C241.214 105.613 242.067 105.773 243.134 105.88L250.334 106.84V111H226.174L200.894 61.72H185.214V98.04C185.214 101.773 185.374 103.96 185.694 104.6C186.014 105.24 187.027 105.667 188.734 105.88L197.534 106.84V111H158.974V106.84L167.774 105.88C169.48 105.667 170.494 105.24 170.814 104.6C171.134 103.96 171.294 101.773 171.294 98.04V15.16C171.294 11.4267 171.134 9.24 170.814 8.59999C170.494 7.95999 169.48 7.53333 167.774 7.32L158.974 6.51999ZM203.454 7.32H185.214V56.6H203.454C209 56.6 213.32 54.84 216.414 51.32C219.614 47.6933 221.214 42.2533 221.214 35V28.76C221.214 21.5067 219.614 16.12 216.414 12.6C213.32 9.08 209 7.32 203.454 7.32ZM239.774 6.51999V2.2H278.334V6.51999L269.534 7.32C267.827 7.53333 266.814 7.95999 266.494 8.59999C266.174 9.24 266.014 11.4267 266.014 15.16V98.04C266.014 101.773 266.174 103.96 266.494 104.6C266.814 105.24 267.827 105.667 269.534 105.88L278.334 106.84V111H239.774V106.84L248.574 105.88C250.28 105.667 251.294 105.24 251.614 104.6C251.934 103.96 252.094 101.773 252.094 98.04V15.16C252.094 11.4267 251.934 9.24 251.614 8.59999C251.294 7.95999 250.28 7.53333 248.574 7.32L239.774 6.51999ZM356.49 112.6C342.943 112.6 332.597 108.067 325.45 99C318.41 89.9333 314.89 77.7733 314.89 62.52V50.52C314.89 40.4933 316.383 31.7467 319.37 24.28C322.463 16.8133 326.997 11 332.97 6.84C338.943 2.67999 346.25 0.599991 354.89 0.599991C362.89 0.599991 369.503 2.19999 374.73 5.4C379.957 8.49333 383.743 12.6 386.09 17.72C388.437 22.7333 389.183 28.2267 388.33 34.2L374.57 37.56C375.743 27.32 374.57 19.48 371.05 14.04C367.53 8.49333 362.143 5.71999 354.89 5.71999C346.783 5.71999 340.597 8.59999 336.33 14.36C332.17 20.12 330.09 29.5067 330.09 42.52V70.52C330.09 83.64 332.33 93.08 336.81 98.84C341.29 104.6 347.957 107.48 356.81 107.48C360.33 107.48 363.69 106.893 366.89 105.72C370.09 104.44 372.81 102.307 375.05 99.32C377.29 96.3333 378.677 92.1733 379.21 86.84L389.13 89.4C386.783 97.9333 382.623 103.96 376.65 107.48C370.783 110.893 364.063 112.6 356.49 112.6ZM475.52 50.52V62.52C475.52 78.0933 471.947 90.36 464.8 99.32C457.653 108.173 447.413 112.6 434.08 112.6C420.64 112.6 410.347 108.173 403.2 99.32C396.16 90.36 392.64 78.0933 392.64 62.52V50.52C392.64 35.0533 396.16 22.8933 403.2 14.04C410.347 5.07999 420.64 0.599991 434.08 0.599991C447.413 0.599991 457.653 5.07999 464.8 14.04C471.947 22.8933 475.52 35.0533 475.52 50.52ZM460.32 42.52C460.32 29.1867 458.08 19.7467 453.6 14.2C449.227 8.54666 442.72 5.71999 434.08 5.71999C425.44 5.71999 418.88 8.54666 414.4 14.2C410.027 19.7467 407.84 29.1867 407.84 42.52V70.52C407.84 83.8533 410.027 93.3467 414.4 99C418.88 104.653 425.44 107.48 434.08 107.48C442.72 107.48 449.227 104.653 453.6 99C458.08 93.3467 460.32 83.8533 460.32 70.52V42.52ZM543.682 6.51999V2.2H574.242V6.51999L565.442 7.32C563.736 7.53333 562.722 7.95999 562.402 8.59999C562.082 9.24 561.922 11.4267 561.922 15.16V74.04C561.922 86.2 559.096 95.6933 553.442 102.52C547.896 109.24 539.362 112.6 527.842 112.6C515.256 112.6 505.602 108.92 498.882 101.56C492.269 94.2 488.962 84.0667 488.962 71.16V15.16C488.962 11.4267 488.802 9.24 488.482 8.59999C488.162 7.95999 487.149 7.53333 485.442 7.32L476.642 6.51999V2.2H515.202V6.51999L506.402 7.32C504.696 7.53333 503.682 7.95999 503.362 8.59999C503.042 9.24 502.882 11.4267 502.882 15.16V73.56C502.882 84.9733 505.016 93.4533 509.282 99C513.656 104.547 520.269 107.32 529.122 107.32C538.082 107.32 544.802 104.493 549.282 98.84C553.762 93.1867 556.002 84.9733 556.002 74.2V15.16C556.002 11.4267 555.842 9.24 555.522 8.59999C555.202 7.95999 554.189 7.53333 552.482 7.32L543.682 6.51999ZM573.724 2.2H658.844V28.28H654.684L650.044 11.48C649.724 10.2 649.35 9.29333 648.924 8.75999C648.604 8.11999 647.91 7.74666 646.844 7.64C645.777 7.42666 643.964 7.32 641.404 7.32H623.324V98.04C623.324 101.773 623.484 103.96 623.804 104.6C624.124 105.24 625.137 105.667 626.844 105.88L635.644 106.84V111H597.084V106.84L605.884 105.88C607.59 105.667 608.604 105.24 608.924 104.6C609.244 103.96 609.404 101.773 609.404 98.04V7.32H591.164C588.71 7.32 586.897 7.42666 585.724 7.64C584.657 7.74666 583.91 8.11999 583.484 8.75999C583.164 9.29333 582.844 10.2 582.524 11.48L577.884 28.28H573.724V2.2ZM725.339 6.51999V2.2H755.899V6.51999L747.099 7.32C745.392 7.53333 744.379 7.95999 744.059 8.59999C743.739 9.24 743.579 11.4267 743.579 15.16V74.04C743.579 86.2 740.752 95.6933 735.099 102.52C729.552 109.24 721.019 112.6 709.499 112.6C696.912 112.6 687.259 108.92 680.539 101.56C673.925 94.2 670.619 84.0667 670.619 71.16V15.16C670.619 11.4267 670.459 9.24 670.139 8.59999C669.819 7.95999 668.805 7.53333 667.099 7.32L658.299 6.51999V2.2H696.859V6.51999L688.059 7.32C686.352 7.53333 685.339 7.95999 685.019 8.59999C684.699 9.24 684.539 11.4267 684.539 15.16V73.56C684.539 84.9733 686.672 93.4533 690.939 99C695.312 104.547 701.925 107.32 710.779 107.32C719.739 107.32 726.459 104.493 730.939 98.84C735.419 93.1867 737.659 84.9733 737.659 74.2V15.16C737.659 11.4267 737.499 9.24 737.179 8.59999C736.859 7.95999 735.845 7.53333 734.139 7.32L725.339 6.51999ZM755.86 6.51999V2.2H800.34C810.793 2.2 818.793 4.70667 824.34 9.72C829.993 14.6267 832.82 21.1867 832.82 29.4V34.36C832.82 40.8667 831.007 46.4133 827.38 51C823.86 55.48 818.793 58.5733 812.18 60.28L832.66 98.04C834.047 100.6 835.06 102.413 835.7 103.48C836.34 104.44 836.927 105.08 837.46 105.4C838.1 105.613 838.953 105.773 840.02 105.88L847.22 106.84V111H823.06L797.78 61.72H782.1V98.04C782.1 101.773 782.26 103.96 782.58 104.6C782.9 105.24 783.913 105.667 785.62 105.88L794.42 106.84V111H755.86V106.84L764.66 105.88C766.367 105.667 767.38 105.24 767.7 104.6C768.02 103.96 768.18 101.773 768.18 98.04V15.16C768.18 11.4267 768.02 9.24 767.7 8.59999C767.38 7.95999 766.367 7.53333 764.66 7.32L755.86 6.51999ZM800.34 7.32H782.1V56.6H800.34C805.887 56.6 810.207 54.84 813.3 51.32C816.5 47.6933 818.1 42.2533 818.1 35V28.76C818.1 21.5067 816.5 16.12 813.3 12.6C810.207 9.08 805.887 7.32 800.34 7.32ZM836.66 6.51999V2.2H875.22V6.51999L866.42 7.32C864.713 7.53333 863.7 7.95999 863.38 8.59999C863.06 9.24 862.9 11.4267 862.9 15.16V98.04C862.9 101.773 863.06 103.96 863.38 104.6C863.7 105.24 864.713 105.667 866.42 105.88L875.22 106.84V111H836.66V106.84L845.46 105.88C847.167 105.667 848.18 105.24 848.5 104.6C848.82 103.96 848.98 101.773 848.98 98.04V15.16C848.98 11.4267 848.82 9.24 848.5 8.59999C848.18 7.95999 847.167 7.53333 845.46 7.32L836.66 6.51999Z" fill="white" class="logo-path"/>
                     <path d="M333.24 209L320.12 165.32L307.72 209H300.76L289.64 161.32C289.373 160.093 289.16 159.24 289 158.76C288.84 158.227 288.6 157.88 288.28 157.72C288.013 157.56 287.587 157.453 287 157.4L282.6 156.84V154.6H304.76V156.84L300.36 157.4C299.507 157.507 299.053 157.72 299 158.04C298.947 158.36 299.107 159.453 299.48 161.32L307.8 198.6L320.04 154.6H326.68L339.72 197.8L348.2 161.32C348.627 159.453 348.787 158.36 348.68 158.04C348.573 157.72 348.12 157.507 347.32 157.4L342.92 156.84V154.6H358.44V156.84L354.04 157.4C353.453 157.453 353.027 157.56 352.76 157.72C352.493 157.88 352.253 158.227 352.04 158.76C351.88 159.24 351.667 160.093 351.4 161.32L340.28 209H333.24ZM363.918 156.84V154.6H385.838V156.84L381.438 157.4C380.585 157.507 380.078 157.747 379.918 158.12C379.758 158.44 379.678 159.507 379.678 161.32V202.28C379.678 204.093 379.758 205.187 379.918 205.56C380.078 205.88 380.585 206.093 381.438 206.2L385.838 206.76V209H363.918V206.76L368.318 206.2C369.171 206.093 369.678 205.88 369.838 205.56C369.998 205.187 370.078 204.093 370.078 202.28V161.32C370.078 159.507 369.998 158.44 369.838 158.12C369.678 157.747 369.171 157.507 368.318 157.4L363.918 156.84ZM428.906 156.84V154.6H444.426V156.84L440.026 157.4C439.173 157.507 438.666 157.747 438.506 158.12C438.346 158.44 438.266 159.507 438.266 161.32V209H433.866L404.506 161.56V202.28C404.506 204.093 404.586 205.187 404.746 205.56C404.906 205.88 405.413 206.093 406.266 206.2L410.666 206.76V209H395.146V206.76L399.546 206.2C400.4 206.093 400.906 205.88 401.066 205.56C401.226 205.187 401.306 204.093 401.306 202.28V161.32C401.306 159.507 401.226 158.44 401.066 158.12C400.906 157.747 400.4 157.507 399.546 157.4L395.146 156.84V154.6H411.226L435.066 192.92V161.32C435.066 159.507 434.986 158.44 434.826 158.12C434.666 157.747 434.16 157.507 433.306 157.4L428.906 156.84ZM449.988 154.6H493.988V168.36H491.748L489.188 159.48C489.028 158.787 488.841 158.307 488.628 158.04C488.468 157.72 488.121 157.533 487.588 157.48C487.055 157.427 486.148 157.4 484.868 157.4H476.788V202.28C476.788 204.093 476.868 205.187 477.028 205.56C477.188 205.88 477.695 206.093 478.548 206.2L482.948 206.76V209H461.028V206.76L465.428 206.2C466.281 206.093 466.788 205.88 466.948 205.56C467.108 205.187 467.188 204.093 467.188 202.28V157.4H459.108C457.881 157.4 456.975 157.427 456.388 157.48C455.855 157.533 455.508 157.72 455.348 158.04C455.188 158.307 455.001 158.787 454.788 159.48L452.228 168.36H449.988V154.6ZM538.166 195.24H540.406V209H500.806V206.76L505.206 206.2C506.059 206.093 506.566 205.88 506.726 205.56C506.886 205.187 506.966 204.093 506.966 202.28V161.32C506.966 159.507 506.886 158.44 506.726 158.12C506.566 157.747 506.059 157.507 505.206 157.4L500.806 156.84V154.6H539.606V168.36H537.366L534.806 159.48C534.646 158.84 534.459 158.387 534.246 158.12C534.086 157.8 533.739 157.613 533.206 157.56C532.672 157.453 531.766 157.4 530.486 157.4H516.566V180.12H525.686C526.966 180.12 527.872 180.093 528.406 180.04C528.939 179.933 529.286 179.747 529.446 179.48C529.659 179.16 529.846 178.68 530.006 178.04L531.766 171.56H534.006V191.48H531.766L530.006 185C529.846 184.36 529.659 183.907 529.446 183.64C529.286 183.32 528.939 183.133 528.406 183.08C527.872 182.973 526.966 182.92 525.686 182.92H516.566V206.2H531.286C532.566 206.2 533.472 206.173 534.006 206.12C534.539 206.013 534.886 205.827 535.046 205.56C535.259 205.24 535.446 204.76 535.606 204.12L538.166 195.24ZM551.409 156.84V154.6H575.569C581.169 154.6 585.489 155.853 588.529 158.36C591.569 160.867 593.089 164.227 593.089 168.44V170.28C593.089 173.48 592.209 176.2 590.449 178.44C588.689 180.68 586.155 182.28 582.849 183.24L592.849 202.28C593.489 203.453 593.969 204.307 594.289 204.84C594.609 205.373 594.902 205.72 595.169 205.88C595.489 205.987 595.915 206.093 596.449 206.2L600.049 206.76V209H585.089L573.009 184.2H567.169V202.28C567.169 204.093 567.249 205.187 567.409 205.56C567.569 205.88 568.075 206.093 568.929 206.2L573.329 206.76V209H551.409V206.76L555.809 206.2C556.662 206.093 557.169 205.88 557.329 205.56C557.489 205.187 557.569 204.093 557.569 202.28V161.32C557.569 159.507 557.489 158.44 557.329 158.12C557.169 157.747 556.662 157.507 555.809 157.4L551.409 156.84ZM575.569 157.4H567.169V181.4H575.569C577.915 181.4 579.702 180.68 580.929 179.24C582.209 177.747 582.849 175.027 582.849 171.08V167.64C582.849 163.693 582.209 161 580.929 159.56C579.702 158.12 577.915 157.4 575.569 157.4Z" fill="white" class="logo-path"/>
-                </svg>                                                                            
+                </svg>
             </div>
 
         <!-- Rechte Nav-Gruppe -->
         <nav class="nav-group">
             <a href="services.html" class="nav-right nav-header">SERVICES</a>
-            <a href="login.html" class="nav-right nav-header">LOGIN</a>
             <div class="header-icons">
-                <a href="#search">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" aria-hidden="false">
-                        <circle cx="11" cy="11" r="5.45" stroke="currentColor" stroke-width="1.1"></circle>
-                        <path stroke="currentColor" d="M14.5 14.5 19 19"></path>
+                <a href="#login">
+                    <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon-header-menu">
+
+                        <title/>
+                        
+                        <g id="Complete">
+                        
+                        <g id="user">
+                        
+                        <g>
+                        
+                        <path d="M20,21V19a4,4,0,0,0-4-4H8a4,4,0,0,0-4,4v2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        
+                        <circle cx="12" cy="7" fill="none" r="4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        
+                        </g>
+                        
+                        </g>
+                        
+                        </g>
+                        
                     </svg>
                 </a>
-            </div>            
+            </div>
             <div class="header-icons">
-                <a href="#contact">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" aria-hidden="false"><path stroke="currentColor" d="M5.5 7.5h13v11h-13z"></path><path fill="currentColor" fill-rule="evenodd" d="M14 8V7a2 2 0 1 0-4 0v1H9V7a3 3 0 1 1 6 0v1h-1Z" clip-rule="evenodd"></path>
+                <a href="#search">
+                    <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-header-menu">
+                        <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="header-icons">
+                <a href="#basket">
+                    <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-header-menu">
+                        <g id="Interface / Shopping_Cart_02">
+                        <path id="Vector" d="M3 3H3.26835C3.74213 3 3.97943 3 4.17267 3.08548C4.34304 3.16084 4.48871 3.28218 4.59375 3.43604C4.71269 3.61026 4.75564 3.8429 4.84137 4.30727L7.00004 16L17.4218 16C17.875 16 18.1023 16 18.29 15.9199C18.4559 15.8492 18.5989 15.7346 18.7051 15.5889C18.8252 15.4242 18.8761 15.2037 18.9777 14.7631L18.9785 14.76L20.5477 7.95996L20.5481 7.95854C20.7023 7.29016 20.7796 6.95515 20.6947 6.69238C20.6202 6.46182 20.4635 6.26634 20.2556 6.14192C20.0184 6 19.6758 6 18.9887 6H5.5M18 21C17.4477 21 17 20.5523 17 20C17 19.4477 17.4477 19 18 19C18.5523 19 19 19.4477 19 20C19 20.5523 18.5523 21 18 21ZM8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20C9 20.5523 8.55228 21 8 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
                     </svg>
                 </a>
             </div>
         </nav>
     </header>
 
+
+
+
+
+
+
+
+
+
     <div id="banner-container">
         <div class="banner-link">
-        <a href="fw24-collection.html" style="color: white;">
             <video id="promo-video" class="responsive-banner" autoplay muted loop style="outline: none;">
-                <source src="Gucci Gift_ To the Mountains - GUCCI (1080p, h264, youtube).mp4" type="video/mp4">
+                <source src="/vids/Gucci Gift_ To the Mountains - GUCCI (1080p, h264, youtube).mp4" type="video/mp4">
             </video>
             <div class="shadow-overlay"></div>
             
@@ -77,10 +180,11 @@
                 <br class="line-break--top_10px">
                 <span class="__col--span--">Winter Collection 2024</span>
                 </p>
+                <button class="__shop-now--span--">About</button>
             </div>
 
 
-        </a>
+
         <button id="pause-button" class="pause-button">
             <svg id="pause-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
                 <rect x="8" y="5" width="2" height="13" fill="white"/>
@@ -91,15 +195,17 @@
             </svg>            
         </button>
     </div>
-    <p id="header--responsive--banner">Explore a Selection of the Collection</p>
-    </div>
-
+</div>
 
 
 
     <div id="white-section">
 
+        
+
     </div>
+
+
 
 
 
@@ -108,98 +214,20 @@
         <div class="image-list-container">
             <ul class="image-list">
                 <li>
-                    <a href="#product-1" class="image-link">
-                        <div class="img-hover-zoom--extra--wide--">
-                            <img src="main-page-size-him-model-w-collection.png" class="image--extra--wide--" alt="Product 1">
-                            <div class="shadow-overlay"></div>
-
-
-
-                            <ul id="bottom-left--products">
-                                
-                                
-                                <li>
-                                    <span class="product--image--description">Winter 2024</span>
-                                </li>
-
-                            </ul>
-
-
-
-                            <div id="bottom-left--button-container">
-                                <button class="__shop-now--span--">For Him</button>
-                                <button class="__shop-now--span--">For Her</button>
-                            </div>
-
-
-
-
-
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="image-list-container">
-            <ul class="image-list">
-                <li>
-                    <a href="#product-2" class="image-link">
-                        <div class="img-hover-zoom">
-                            <img src="for-him-complete-the-look.png" class="image" alt="Product 1">
-                            <div class="shadow-overlay"></div>
-                            <ul id="bottom-left--products--2">
-                                <li>
-                                    <span class="product--image--description--middle--">Gifts for Him</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </a>
-                </li>
-                <li>
                     <a href="#product-3" class="image-link">
-                        <div class="img-hover-zoom">
-                            <img src="Winter-Gucci-Package.png" class="image" alt="Product 1">
+                        <div class="img-hover-zoom--wide--">
+                            <img src="/winter-col-pics-gucci/for-him-complete-the-look.png" class="image--wide--" alt="Product 1">
                             <div class="shadow-overlay"></div>
-                            <ul id="bottom-left--products--2">
+                            
+                            
+                            <ul id="bottom-centered--products">
+                                
+                                
                                 <li>
-                                    <span class="product--image--description--middle--">Travel</span>
+                                    <span class="product--image--description">Gifts For Him</span>
                                 </li>
+
                             </ul>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#product-4" class="image-link">
-                        <div class="img-hover-zoom">
-                            <img src="Jackets-for-her.png" class="image" alt="Product 1">
-                            <div class="shadow-overlay"></div>
-                            <ul id="bottom-left--products--2">
-                                <li>
-                                    <span class="product--image--description--middle--">Gifts for Her</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="image-list-container">
-            <ul class="image-list">
-                <li>
-                    <a href="#product-5" class="image-link">
-                        <div class="img-hover-zoom--extra--wide--">
-                            <img src="travel-w-collection-w.png" class="image--extra--wide--" alt="Product 1">
-                            <div class="shadow-overlay"></div>
-
-
-
-                            <ul id="bottom-left--products">
-                                <li>
-                                    <span class="product--image--description">TRAVEL</span>
-                                </li>
-                            </ul>
-
-
 
 
                             <div id="bottom-left--button-container">
@@ -207,7 +235,141 @@
                             </div>
 
 
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#product-5" class="image-link">
+                        <div class="img-hover-zoom--wide--">
+                            <img src="/winter-col-pics-gucci/Jackets-for-her.png" class="image--wide--" alt="Product 1">
+                            <div class="shadow-overlay"></div>
+                            
+                            
+                            <ul id="bottom-centered--products">
+                                
+                                
+                                <li>
+                                    <span class="product--image--description">Gifts For Her</span>
+                                </li>
 
+                            </ul>
+
+
+                            <div id="bottom-left--button-container">
+                                <button class="__shop-now--span--">Discover</button>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="image-list-container">
+            <ul class="image-list">
+                <li>
+                    <a href="#product-1" class="image-link">
+                        <div class="img-hover-zoom--extra--wide--">
+                            <img src="/winter-col-pics-gucci/main-page-size-him-model-w-collection.png" class="image--extra--wide--" alt="Product 1">
+                            <div class="shadow-overlay"></div>
+                            
+                            
+                            <ul id="bottom-centered--products">
+                                
+                                
+                                <li>
+                                    <span class="product--image--description">Men's Handbags</span>
+                                </li>
+
+                            </ul>
+
+
+                            <div id="bottom-left--button-container">
+                                <button class="__shop-now--span--">Shop</button>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="image-list-container">
+            <ul class="image-list">
+                <li>
+                    <a href="#product-3" class="image-link">
+                        <div class="img-hover-zoom--wide--">
+                            <img src="/winter-col-pics-gucci/for-her-complete-the-look.png" class="image--wide--" alt="Product 1">
+                            <div class="shadow-overlay"></div>
+                            
+                            
+                            <ul id="bottom-centered--products">
+                                
+                                
+                                <li>
+                                    <span class="product--image--description">Jackets</span>
+                                </li>
+
+                            </ul>
+
+
+                            <div id="bottom-left--button-container">
+                                <button class="__shop-now--span--">Discover</button>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#product-5" class="image-link">
+                        <div class="img-hover-zoom--wide--">
+                            <img src="/winter-col-pics-gucci/handbags-for-her.png" class="image--wide--" alt="Product 1">
+                            <div class="shadow-overlay"></div>
+                            
+                            
+                            <ul id="bottom-centered--products">
+                                
+                                
+                                <li>
+                                    <span class="product--image--description">Women's Handbags</span>
+                                </li>
+
+                            </ul>
+
+
+                            <div id="bottom-left--button-container">
+                                <button class="__shop-now--span--">Shop</button>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="image-list-container">
+            <ul class="image-list">
+                <li>
+                    <a href="#product-1" class="image-link">
+                        <div class="img-hover-zoom--extra--wide--">
+                            <img src="/winter-col-pics-gucci/travel-w-collection-w.png" class="image--extra--wide--" alt="Product 1">
+                            <div class="shadow-overlay"></div>
+                            
+                            
+                            <ul id="bottom-centered--products">
+                                
+                                
+                                <li>
+                                    <span class="product--image--description">Travel</span>
+                                </li>
+
+                            </ul>
+
+
+                            <div id="bottom-left--button-container">
+                                <button class="__shop-now--span--">Discover</button>
+                            </div>
 
 
                         </div>
@@ -221,7 +383,9 @@
 
 
 
-    <div style="height: 20vh; background-color: white;"></div>
+    <div style="height: 30vh; background-color: white; text-align: center; align-content: center;">
+        <p style="margin-top: 5vh;" class="header--second--white--section--2">RECENT FROM THE HOUSE</p>
+    </div>
 
 
 
@@ -229,17 +393,14 @@
 
     <div class="white-section--2">
         
-        <p class="header--second--white--section--2">RECENT FROM THE HOUSE</p>
-            <div class="collection-header">
-            </div>
         
         
         
         
         <div id="banner--container--2">
-            <a href="fw24-collection.html" style="color: white;">
-                <video id="recent--news--video2" class="responsive--banner--recenent--video2" autoplay muted loop style="outline: none;">
-                    <source src="Gucci Gift： Stories from The Savoy.mp4" type="video/mp4">
+            <a href="fw24-collection.html" class="recent--news--video2" style="color: white;">
+                <video id="recent--news--video2" autoplay muted loop style="outline: none;">
+                    <source src="/vids/Gucci Gift： Stories from The Savoy.mp4" type="video/mp4">
                 </video>
                 <div class="shadow-overlay"></div>
 
@@ -291,9 +452,156 @@
 
 
 
-    <div class="white-section--3" style="border-top: solid 1px black;">
-        
+
+
+
+
+
+
+
+
+
+    <div class="product--2--section-aw">
+        <div class="p2--image-list-container">
+            <button class="w3-button w3-display-left" onclick="plusDivs(-1)">
+                <svg width="800px" height="800px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="w3-b-d--svg">
+                    <path d="M8 10L8 14L6 14L-2.62268e-07 8L6 2L8 2L8 6L16 6L16 10L8 10Z" fill="white"/>
+                </svg>
+            </button>
+            <div class="mySlides">
+                <div class="p2--img-hover-zoom">
+                    <img src="/anniversary-col-pics-gucci/gift-campaign-2-female-with-bag-wide.png" class="p2--image" alt="Product #2-1">
+                    <div class="shadow-overlay--2"></div>
+                    <ul id="bottom-centered--products">
+                        <li>
+                            <span class="product--image--description">Gifts for Her</span>
+                        </li>
+                    </ul>
+                    <div id="bottom-left--button-container">
+                        <button class="__shop-now--span--">Discover</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mySlides">
+                <div class="p2--img-hover-zoom">
+                    <img src="/anniversary-col-pics-gucci/gift-campaign-4-male-wide.png" class="p2--image" alt="Product #2-2">
+                    <div class="shadow-overlay--2"></div>
+                    <ul id="bottom-centered--products">
+                        <li>
+                            <span class="product--image--description">Gifts for Him</span>
+                        </li>
+                    </ul>
+                    <div id="bottom-left--button-container">
+                        <button class="__shop-now--span--">Discover</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mySlides">
+                <div class="p2--img-hover-zoom">
+                    <img src="/anniversary-col-pics-gucci/gift-campaign-2.2-wide.png" class="p2--image" alt="Product #2-3">
+                    <div class="shadow-overlay--2"></div>
+                    <ul id="bottom-centered--products">
+                        <li>
+                            <span class="product--image--description">Women's Accessories</span>
+                        </li>
+                    </ul>
+                    <div id="bottom-left--button-container">
+                        <button class="__shop-now--span--">Shop</button>
+                    </div>
+                </div>
+            </div>
+            <button class="w3-button w3-display-right" onclick="plusDivs(1)">
+                <svg width="800px" height="800px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="w3-b-d--svg">
+                    <path d="M8 6L8 2L10 2L16 8L10 14L8 14L8 10L-1.74845e-07 10L-3.01991e-07 6L8 6Z" fill="white"/>
+                </svg>
+            </button>
+        </div>
     </div>
+    
+    
+
+
+
+
+
+
+
+    <div style="height: 120px; background-color: black;">
+
+    </div>
+
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section help">
+                <h2 class="footer-title">CAN WE HELP YOU?</h2>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">My Order</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                    <li><a href="#">Unsubscribe from Newsletter</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="footer-section company">
+                <h2 class="footer-title">THE COMPANY</h2>
+                <ul>
+                    <li><a href="#">About Anri Couturi</a></li>
+                    <li><a href="#">Anri Couturi Equilibrium</a></li>
+                    <li><a href="#">Code of Ethics</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Privacy and Cookies</a></li>
+                    <li><a href="#">Corporate Information and Imprint</a></li>
+                </ul>
+            </div>
+            <div class="footer-section updates">
+                <h2 class="footer-title">Subscribe to Anri Couturi Updates</h2>
+                <p class="footer-paragraph">By entering your email address, you agree to receive our newsletter with information about our latest collections, events, and initiatives. For more information, please see our <br> <a href="#" class="footer-paragraph">Privacy Policy</a>.</p>
+                <input type="email" placeholder="Email">
+                <label for="language">Language:</label>
+                <select id="language">
+                    <option>Deutsch</option>
+                    <option>English</option>
+                    <option>Español</option>
+                    <option>Français</option>
+                    <option>Italiano</option>
+                    <option>简体中文</option>
+                </select>
+                <label for="region">COUNTRY/REGION:</label>
+                <select id="region">
+                    <option>Germany</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-section services">
+                <h2 class="footer-title">Anri Couturi Services</h2>
+                <ul>
+                    <li><a href="#">Discover Our Services</a></li>
+                    <li><a href="#">Schedule an Appointment</a></li>
+                    <li><a href="#">In-Store Pickup</a></li>
+                    <li><a href="#">Store Locator</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Anri Couturi. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    
+    
+
+    
+        
 
 
 
@@ -306,24 +614,138 @@
 
         // Header-Element erfassen
             const header = document.getElementById('header');
+
             // SVG-Path-Element erfassen
             const svgPath = document.querySelector('.ac--vid--text--new path');
 
+            // Links für beide Navigationsgruppen erfassen (nav-left und nav-right)
+            const navLinks = document.querySelectorAll('.nav-right.nav-header, .nav-left.nav-header');
+
             // Funktion, um den Header bei Scrollen zu ändern
             function handleScroll() {
-                // Wenn die Seite mehr als 0px gescrollt wurde, füge die Klasse "scrolled" hinzu
                 if (window.scrollY > 0) {
-                    header.classList.add('scrolled');
-                    svgPath.style.fill = 'transparent'; // SVG-Path unsichtbar machen
+                    // Wenn die Seite gescrollt wurde
+                    header.classList.add('scrolled'); // Klasse zum Header hinzufügen
+
+                    if (svgPath) {
+                        svgPath.style.fill = 'transparent'; // SVG-Path unsichtbar machen
+                    }
+
+                    // Links aktivieren (klickbar und schwarz machen)
+                    navLinks.forEach(link => {
+                        link.classList.add('scrolled');
+                    });
                 } else {
-                    // Wenn der Benutzer wieder ganz oben ist, entferne die Klasse
-                    header.classList.remove('scrolled');
-                    svgPath.style.fill = ''; // SVG-Path wieder sichtbar machen (Standard-Füllfarbe verwenden)
+                    // Wenn der Benutzer wieder ganz oben ist
+                    header.classList.remove('scrolled'); // Klasse vom Header entfernen
+
+                    if (svgPath) {
+                        svgPath.style.fill = ''; // SVG-Path wieder sichtbar machen (Standard-Farbe)
+                    }
+
+                    // Links deaktivieren (nicht klickbar und grau machen)
+                    navLinks.forEach(link => {
+                        link.classList.remove('scrolled');
+                    });
                 }
             }
 
             // Event-Listener für Scroll-Events hinzufügen
             window.addEventListener('scroll', handleScroll);
+
+
+
+
+
+
+
+
+
+
+
+
+            window.onscroll = function() {
+                var banner = document.getElementById("topBanner");
+                
+                if (window.pageYOffset > 50) {
+                    banner.style.transform = "translateY(-100%)";
+                    header.classList.add("scrolled");
+                } else {
+                    banner.style.transform = "translateY(0)";
+                    header.classList.remove("scrolled");
+                }
+            };
+
+
+
+            const NUM_SNOWFLAKES = 300; // Anzahl der initialen Schneeflocken stark erhöhen
+
+                // Schneefall-Container im top-banner
+                const snowfallContainer = document.querySelector('.top-banner .snowfall');
+
+                // Funktion zum Erstellen einer Schneeflocke
+                function createSnowflake() {
+                    const snowflake = document.createElement('div');
+                    snowflake.classList.add('snowflake');
+
+                    // Zufällige Position und Größe
+                    snowflake.style.left = `${Math.random() * 100}vw`;
+                    snowflake.style.fontSize = `${Math.random() * 2 + 0.5}em`; // Zufällige Größen
+                    snowflake.style.animationDuration = `${10 + Math.random() * 20}s`; // Langsamere Animation
+                    snowflake.style.animationDelay = `${-Math.random() * 10}s`; // Kürzere Verzögerung
+
+                    // Zufällige Schräglage
+                    snowflake.style.setProperty('--left-start', `${(Math.random() - 0.5) * 20}vw`);
+                    snowflake.style.setProperty('--left-end', `${(Math.random() - 0.5) * 40}vw`);
+
+                    // Hinzufügen in den Container
+                    snowfallContainer.appendChild(snowflake);
+                }
+
+                // Initiale Schneeflocken erstellen
+                for (let i = 0; i < NUM_SNOWFLAKES; i++) {
+                    createSnowflake();
+                }
+
+                // Kontinuierlich neue Schneeflocken erstellen
+                setInterval(createSnowflake, 100); // Alle 100ms eine neue Schneeflocke
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -454,6 +876,110 @@
             }
         });
     });
+
+
+
+
+
+
+
+
+
+
+
+    var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+    showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+        x[i].classList.remove("active");
+    }
+    x[slideIndex-1].style.display = "block";
+    setTimeout(() => {
+        x[slideIndex-1].classList.add("active");
+    }, 50); // Timeout to allow the display property to take effect before adding transition
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function openMenu() {
+    var menu = document.getElementById("sideMenu");
+    var overlay = document.getElementById("overlay");
+    var submenu = document.getElementById("submenu1");
+
+    menu.classList.add("open");
+    overlay.classList.add("active");
+    submenu.style.left = menu.offsetWidth + 'px'; /* Positioniert das Submenu neben dem Hauptmenu */
+
+    // Scrollen der Seite verhindern und fixieren
+    document.body.classList.add('no-scroll');
+}
+
+function closeMenu() {
+    var menu = document.getElementById("sideMenu");
+    var submenu = document.getElementById("submenu1");
+    var overlay = document.getElementById("overlay");
+
+    menu.classList.remove("open");
+    overlay.classList.remove("active");
+    submenu.classList.remove("open");
+
+    // Scrollen der Seite wieder erlauben und fixieren aufheben
+    document.body.classList.remove('no-scroll');
+}
+
+function toggleSubmenu(id) {
+    var submenu = document.getElementById(id);
+    if (submenu.classList.contains("open")) {
+        submenu.classList.remove("open");
+    } else {
+        submenu.classList.add("open");
+    }
+}
+
+// Schließen des Menüs, wenn außerhalb geklickt wird
+document.addEventListener('click', function(event) {
+    var isClickInsideMenu = document.getElementById('sideMenu').contains(event.target);
+    var isClickInsideSubmenu = document.getElementById('submenu1').contains(event.target);
+    var isClickMenuButton = document.querySelector('.menu-link').contains(event.target);
+
+    if (!isClickInsideMenu && !isClickInsideSubmenu && !isClickMenuButton) {
+        closeMenu();
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
